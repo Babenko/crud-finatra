@@ -1,6 +1,6 @@
 package com.crud.repository.table
 
-import com.crud.model.{Genre, Movie}
+import com.crud.model.Movie
 import slick.lifted.Tag
 import slick.jdbc.H2Profile.api._
 

@@ -15,8 +15,8 @@ import com.crud.repository.DB.connection;
 @Singleton
 class GenreRepository {
 
-  val genre = TableQuery[Genres]
-  val setup = DBIO.seq(
+  private val genre = TableQuery[Genres]
+  private val setup = DBIO.seq(
     genre.schema.create,
     genre += Genre("Drama", "Something about drama"),
     genre += Genre("Action", "Something about action")

@@ -4,9 +4,9 @@ import javax.inject.Singleton
 
 import com.crud.model.Genre
 import com.crud.repository.table.Genres
-import slick.lifted.TableQuery;
+import slick.lifted.TableQuery
 import slick.jdbc.H2Profile.api._
-import com.crud.repository.DB.connection;
+import com.crud.repository.DB.connection
 
 
 /**

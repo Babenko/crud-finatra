@@ -22,8 +22,6 @@ export function loadMovies() {
 export function saveMovie(movie) {
 	console.log(movie)
 	return (dispatch) => {
-		return fetch(MOVIE_URL, {method: "POST", headers:{"content-type":"application/json"}, body: JSON.stringify(movie)})
-		.then(response => response.json())
-		.then(newMovie => dispatch(saveMovieSuccess(newMovie)));
+		return fetch(MOVIE_URL, {mode: 'cors', method: "POST", headers: {"content-type":"application/json"}, body: JSON.stringify(movie)});
 	};
 }

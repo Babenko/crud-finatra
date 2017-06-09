@@ -1,6 +1,6 @@
 package com.crud
 
-import com.crud.controller.{GenreController, MovieController, PingController}
+import com.crud.controller.{CorsController, GenreController, MovieController, PingController}
 import com.crud.filter.CorsFilter
 import com.twitter.finagle.http.{Request, Response}
 import com.twitter.finatra.http.HttpServer
@@ -25,5 +25,6 @@ class AppServer extends HttpServer {
       .add[PingController]
       .add[GenreController]
       .add[MovieController]
+      .add[CorsController]
   }
 }

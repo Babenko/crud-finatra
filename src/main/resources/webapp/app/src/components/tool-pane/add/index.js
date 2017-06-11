@@ -10,6 +10,7 @@ import * as movieActions from '../../../actions/movieActions';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import MovieForm from './movieForm';
+import GenreForm from './genreForm';
 
 const paddingRight = {"margin-right": "5px"};
 const paperStyle = {
@@ -25,7 +26,7 @@ class AddTool extends React.Component {
 
 	constructor(props){
 		super(props)
-		this.state = {genreId: 1, genres:[]}
+		this.state = {genreId: 1, genres:[], isMovie: true}
 	}
 
 	componentDidMount() {
@@ -38,8 +39,13 @@ class AddTool extends React.Component {
 			<div>
 				<Paper style={paperStyle} zDepth={5}>
 					<h5>New movie form</h5>
-				    <Toggle/>
-				    <MovieForm genres={genres}/>
+				    <Toggle onToggle={(e) => this.setState({isMovie: !this.state.isMovie})} />
+				    {
+				    	
+				    		this.state.isMovie ? <MovieForm genres={genres}/> :	<GenreForm/>
+					    	
+				    }
+				    
 				</Paper>
 			</div>
 		);

@@ -14,3 +14,13 @@ export function loadGenres() {
 		.then(genres => dispatch(loadGenresSuccess(genres)));
 	};
 }
+
+export function saveGenresSuccess(genres) {
+	return {type: types.ALL_GENRES, genres};
+}
+
+export function saveGenre(genre) {
+	return (dispatch) => {
+		return fetch(GENRE_URL, {method:"POST", headers: {"content-type":"application/json"}, body: JSON.stringify(genre), });
+	};
+}

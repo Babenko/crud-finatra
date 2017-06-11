@@ -3,15 +3,17 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
 import DropDownMenu from 'material-ui/DropDownMenu';
+import Toggle from 'material-ui/Toggle';
 import MenuItem from 'material-ui/MenuItem';
 import * as genreActions from '../../../actions/genreActions';
 import * as movieActions from '../../../actions/movieActions';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
+import MovieForm from './movieForm';
 
 const paddingRight = {"margin-right": "5px"};
 const paperStyle = {
-  height: 300,
+  height: 400,
   width: 500,
   margin: 'auto',
   textAlign: 'center',
@@ -36,30 +38,12 @@ class AddTool extends React.Component {
 			<div>
 				<Paper style={paperStyle} zDepth={5}>
 					<h5>New movie form</h5>
-					<TextField onChange={(event, name) => this.setState({name})} hintText="Movie Name" style={paddingRight}/>
-					<TextField onChange={(event, description) => this.setState({description})} hintText="Movie Description" style={paddingRight}/>
-					<br/>
-					<DropDownMenu value={this.state.genreId} onChange={this.handleChange}>
-				        { 
-				        	genres ? 
-				        	genres.map((genre) => (<MenuItem value={genre.id} primaryText={genre.name}/>)) :
-				        	<MenuItem value={0} primaryText="None" />
-				        }
-				    </DropDownMenu>
-					<br/>
-					<RaisedButton onTouchTap={this.saveMovie} label="Save" style={paddingRight}/>
+				    <Toggle/>
+				    <MovieForm genres={genres}/>
 				</Paper>
 			</div>
 		);
 	}
-
-	handleChange = (event, index, genreId) => this.setState({genreId});
-
-	saveMovie = (e) => {
-		const {genreId, name, description} = this.state;
-		this.props.actions.movie.saveMovie({genreId, name, description});
-	}
-
 }
 
 function mapDispatchToProps(dispatch) {

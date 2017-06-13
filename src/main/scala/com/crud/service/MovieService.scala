@@ -9,10 +9,10 @@ import com.crud.repository.MovieRepository
   * Created by Sem Babenko
   */
 @Singleton
-class MovieService @Inject() (genreRepository: MovieRepository) {
+class MovieService @Inject() (movieRepository: MovieRepository) {
 
-  def getAll() = genreRepository.getAll()
+  def getAll() = movieRepository.getAll()
 
-  def insert(movie: Movie) = genreRepository.insert(movie)
+  def insert(movie: Movie) = movieRepository.insert(movie)
 
 }

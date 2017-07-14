@@ -7,6 +7,7 @@ import com.crud.repository.table.Genres
 import slick.lifted.TableQuery
 import slick.jdbc.H2Profile.api._
 import com.crud.repository.DB.connection
+import com.crud.utils.PopulationUtils
 
 
 /**
@@ -26,5 +27,7 @@ class GenreRepository {
   def getAll() = connection.run(genre.result)
 
   def insert(nGenre: Genre) = connection.run(genre += nGenre)
+
+  def demo() = connection.run(genre ++= PopulationUtils.populateGenres().map(map => Genre(map.getOrElse("genres", "None"), "")))
 
 }

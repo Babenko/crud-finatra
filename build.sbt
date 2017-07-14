@@ -24,6 +24,7 @@ lazy val versions = new {
   val junit = "4.12"
   val h2 = "1.4.195"
   val slick = "3.2.0"
+  val scalacsv = "1.3.4"
 }
 
 libraryDependencies ++= Seq(
@@ -32,6 +33,7 @@ libraryDependencies ++= Seq(
   "com.h2database" % "h2" % versions.h2,
   "com.typesafe.slick" %% "slick" % versions.slick,
   "com.typesafe.slick" %% "slick-hikaricp" % versions.slick,
+  "com.github.tototoshi" %% "scala-csv" % versions.scalacsv,
   "ch.qos.logback" % "logback-classic" % versions.logback % "test",
 
   "com.twitter" %% "finatra-http" % versions.finatra % "test",

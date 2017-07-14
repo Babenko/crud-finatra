@@ -15,4 +15,5 @@ class GenreService @Inject() (genreRepository: GenreRepository) {
 
   def insert(genre: Genre) = genreRepository.insert(genre)
 
+  def demo() = genreRepository.demo()
 }
